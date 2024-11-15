@@ -1,4 +1,3 @@
-// Week.jsx
 import React from 'react';
 import { useSelector } from 'react-redux';
 import dayjs from 'dayjs';
@@ -19,7 +18,7 @@ export default function Week() {
             <tr>
               <th className="px-1 py-1 border rounded-tl-lg">Day</th>
               {hours.map((hour, index) => (
-                <th key={index} className="px-1 py-1 border font-semibold">
+                <th key={index} colSpan={2} className="px-1 py-1 border font-semibold">
                   {hour.startTime} - {hour.endTime}
                 </th>
               ))}

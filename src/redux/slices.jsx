@@ -4,10 +4,23 @@ import dayjs from "dayjs";
 const initialState = {
   startOfWeek: dayjs().startOf("week").add(1, "day").format('YYYY-MM-DD'),
   assignments: [],
-  hours: Array.from({ length: 10 }, (_, i) => ({
-    startTime: `${8 + i}:30`,
-    endTime: `${9 + i}:30`,
-  })),
+  hours: Array.from({ length: 10 }, (_, i) => {
+    const startTime = dayjs().hour(8 + i).minute(30);  // Adjusted for accurate time calculation
+    return {
+      startTime: startTime.format('HH:mm'),
+      endTime: startTime.add(1, 'hour').format('HH:mm'),
+      subHours: [
+        {
+          startTime: startTime.format('HH:mm'),
+          endTime: startTime.add(30, 'minute').format('HH:mm'), // Correct 30-min interval
+        },
+        {
+          startTime: startTime.add(30, 'minute').format('HH:mm'),
+          endTime: startTime.add(1, 'hour').format('HH:mm'), // Correct end time to next full hour
+        }
+      ],
+    };
+  }),
   showAddAssignmentModal: false,
   selectedDay: null,
   selectedStartTime: "", 
@@ -22,10 +35,10 @@ const slice = createSlice({
       state.selectedDay = action.payload;
     },
     setSelectedStartTime(state, action) {
-      state.selectedStartTime = action.payload;  // Set the startTime for the modal
+      state.selectedStartTime = action.payload;
     },
     setSelectedEndTime(state, action) {
-      state.selectedEndTime = action.payload;  // Set the startTime for the modal
+      state.selectedEndTime = action.payload;
     },
     setShowAddAssignmentModal(state, action) {
       state.showAddAssignmentModal = action.payload;

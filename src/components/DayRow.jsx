@@ -6,10 +6,26 @@ import { setSelectedDay, setSelectedEndTime, setSelectedStartTime, setShowAddAss
 const DayRow = ({ day, hours, assignments }) => {
   const dispatch = useDispatch();
 
+  // Improved span count calculation for sub-cells
   const getSpanCount = (startTime, endTime) => {
-    const startIndex = hours.findIndex(hour => hour.startTime === startTime);
-    const endIndex = hours.findIndex(hour => hour.endTime === endTime);
+    const flatSubHours = hours.flatMap(hour => hour.subHours);
+    const startIndex = flatSubHours.findIndex(subHour => subHour.startTime === startTime);
+    const endIndex = flatSubHours.findIndex(subHour => subHour.endTime === endTime);
+
+    if (startIndex === -1 || endIndex === -1) {
+      return 1; // Fallback in case time is not found
+    }
+
     return endIndex - startIndex + 1;
+  };
+
+  // Helper to check if a sub-hour falls within the assignment range
+  const isWithinAssignmentRange = (assignment, subHour) => {
+    return (
+      assignment.day === day.format('YYYY-MM-DD') &&
+      subHour.startTime >= assignment.startTime &&
+      subHour.endTime <= assignment.endTime
+    );
   };
 
   return (
@@ -17,64 +33,67 @@ const DayRow = ({ day, hours, assignments }) => {
       <td className="px-1 py-5 border font-semibold text-gray-700">
         {day.format('dddd')}
       </td>
-      {hours.map((hour, hourIndex) => {
-        // Check if an assignment starts at this hour
-        const assignment = assignments.find(
-          (assignment) =>
-            assignment.day === day.format('YYYY-MM-DD') &&
-            assignment.startTime === hour.startTime
-        );
+      {hours.map((hour) => (
+        hour.subHours.map((subHour, subHourIndex) => {
+          // Check if an assignment covers this sub-hour
+          const assignment = assignments.find(
+            (assignment) => isWithinAssignmentRange(assignment, subHour)
+          );
 
-        // If an assignment is found, render it with colSpan
-        if (assignment) {
-          const spanCount = getSpanCount(assignment.startTime, assignment.endTime);
+          // If an assignment is found, render it with the correct colSpan
+          if (assignment && subHour.startTime === assignment.startTime) {
+            const spanCount = getSpanCount(assignment.startTime, assignment.endTime);
+            return (
+              <td
+                key={`${subHour.startTime}-${subHour.endTime}`}
+                colSpan={spanCount}
+                className="border p-2 cursor-pointer bg-blue-100"
+                onClick={() => {
+                  dispatch(setSelectedDay(day.format('YYYY-MM-DD')));
+                  dispatch(setSelectedStartTime(assignment.startTime));
+                  dispatch(setSelectedEndTime(assignment.endTime));
+                  dispatch(setShowAddAssignmentModal(true));
+                }}
+              >
+                {assignment.title}
+              </td>
+            );
+          }
+
+          // Check if this sub-cell is covered by a previously rendered assignment
+          const isCellCovered = assignments.some((assignment) => {
+            const flatSubHours = hours.flatMap(hour => hour.subHours);
+            const startIndex = flatSubHours.findIndex(subHour => subHour.startTime === assignment.startTime);
+            const endIndex = flatSubHours.findIndex(subHour => subHour.endTime === assignment.endTime);
+            const currentIndex = flatSubHours.findIndex(s => s.startTime === subHour.startTime);
+
+            return (
+              assignment.day === day.format('YYYY-MM-DD') &&
+              currentIndex > startIndex &&
+              currentIndex <= endIndex
+            );
+          });
+
+          // Skip rendering this sub-cell if it is covered
+          if (isCellCovered) {
+            return null;
+          }
+
+          // Render an empty sub-cell
           return (
             <td
-              key={hourIndex}
-              colSpan={spanCount}
-              className="border p-2 cursor-pointer bg-blue-100"
+              key={`${subHour.startTime}-${subHour.endTime}`}
+              className="border p-2 cursor-pointer"
               onClick={() => {
                 dispatch(setSelectedDay(day.format('YYYY-MM-DD')));
-                dispatch(setSelectedStartTime(assignment.startTime));
-                dispatch(setSelectedEndTime(assignment.endTime));
+                dispatch(setSelectedStartTime(subHour.startTime));
+                dispatch(setSelectedEndTime(subHour.endTime));
                 dispatch(setShowAddAssignmentModal(true));
               }}
-            >
-              {assignment.title}
-            </td>
+            ></td>
           );
-        }
-
-        // Check if this cell is covered by a previously rendered assignment
-        const isCellCovered = assignments.some((assignment) => {
-          const startIndex = hours.findIndex(h => h.startTime === assignment.startTime);
-          const endIndex = hours.findIndex(h => h.endTime === assignment.endTime);
-          return (
-            assignment.day === day.format('YYYY-MM-DD') &&
-            hourIndex > startIndex &&
-            hourIndex <= endIndex
-          );
-        });
-
-        // Skip rendering this cell if it is covered
-        if (isCellCovered) {
-          return null;
-        }
-
-        // Render an empty cell
-        return (
-          <td
-            key={hourIndex}
-            className="border p-2 cursor-pointer"
-            onClick={() => {
-              dispatch(setSelectedDay(day.format('YYYY-MM-DD')));
-              dispatch(setSelectedStartTime(hour.startTime));
-              dispatch(setSelectedEndTime(hour.endTime));
-              dispatch(setShowAddAssignmentModal(true));
-            }}
-          ></td>
-        );
-      })}
+        })
+      ))}
     </tr>
   );
 };
