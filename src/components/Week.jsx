@@ -1,14 +1,20 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import dayjs from 'dayjs';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAssignmentsAsync } from '../redux/slices';
 import DayRow from './DayRow';
+import dayjs from 'dayjs';
 
 export default function Week() {
+  const dispatch = useDispatch();
   const startOfWeekString = useSelector((state) => state.calendar.startOfWeek);
   const startOfWeek = dayjs(startOfWeekString);
   const hours = useSelector((state) => state.calendar.hours);
   const daysOfWeek = Array.from({ length: 7 }, (_, i) => startOfWeek.add(i, 'day'));
   const assignments = useSelector((state) => state.calendar.assignments);
+
+  useEffect(() => {
+    dispatch(fetchAssignmentsAsync());
+  }, [dispatch]);
 
   return (
     <div className="overflow-x-auto p-2">

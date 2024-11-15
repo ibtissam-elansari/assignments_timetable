@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setShowAddAssignmentModal, addAssignment, updateAssignment, deleteAssignment } from '../redux/slices';
+import { setShowAddAssignmentModal } from '../redux/slices';
+import { addAssignmentAsync, updateAssignmentAsync, deleteAssignmentAsync } from '../redux/slices';
 
 export default function AssignmentModal() {
   const dispatch = useDispatch();
@@ -11,10 +12,7 @@ export default function AssignmentModal() {
   const selectedEndTime = useSelector((state) => state.calendar.selectedEndTime);
   const assignments = useSelector((state) => state.calendar.assignments);
 
-  // Flatten the sub-hours to create a list of all possible time slots
   const timeSlots = hours.flatMap(hour => hour.subHours);
-
-  // Check if there's an assignment that matches the selected day and times to edit
   const existingAssignment = assignments.find(
     (assignment) =>
       assignment.day === selectedDay &&
@@ -29,13 +27,13 @@ export default function AssignmentModal() {
     nbrAssignment: "",
     startTime: "",
     endTime: "",
-    id: null, // Unique ID for updates
+    id: null,
   });
 
   useEffect(() => {
     if (showAddAssignmentModal && selectedStartTime && selectedEndTime) {
       if (existingAssignment) {
-        setAssignmentData(existingAssignment); // Populate data for editing
+        setAssignmentData(existingAssignment);
       } else {
         setAssignmentData((prevData) => ({
           ...prevData,
@@ -54,23 +52,26 @@ export default function AssignmentModal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    console.log('Assignment data being submitted:', assignmentData);
+  
     if (!assignmentData.title || !assignmentData.startTime || !assignmentData.endTime) {
       alert("Please fill in all required fields.");
       return;
     }
-
+  
     if (assignmentData.id) {
-      dispatch(updateAssignment(assignmentData));
+      console.log('Updating assignment with ID:', assignmentData.id);
+      dispatch(updateAssignmentAsync(assignmentData));
     } else {
-      dispatch(addAssignment({ ...assignmentData, day: selectedDay, id: Date.now() }));
+      console.log('Creating new assignment');
+      dispatch(addAssignmentAsync({ ...assignmentData, day: selectedDay, id: Date.now().toString() }));
     }
     handleClose();
   };
 
   const handleDelete = () => {
     if (assignmentData.id) {
-      dispatch(deleteAssignment({ id: assignmentData.id }));
+      dispatch(deleteAssignmentAsync(assignmentData.id));
       handleClose();
     }
   };

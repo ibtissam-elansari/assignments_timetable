@@ -1,0 +1,180 @@
+{
+  "assignments": [
+    {
+      "id_séance": 1,
+      "title": "Math Class",
+      "formateur": "Mr. Smith",
+      "groupe": "A1",
+      "salle": "Room 101",
+      "day": "2024-11-15",
+      "startTime": "08:30",
+      "endTime": "09:00",
+      "durée": "30",
+      "id": "3bd4"
+    },
+    {
+      "id_séance": 3,
+      "title": "History Class",
+      "formateur": "Ms. Davis",
+      "groupe": "C3",
+      "salle": "Room 103",
+      "day": "2024-11-15",
+      "startTime": "09:30",
+      "endTime": "10:00",
+      "durée": "30",
+      "id": "b3b8"
+    },
+    {
+      "id_séance": 5,
+      "title": "Art Class",
+      "formateur": "Ms. Green",
+      "groupe": "E5",
+      "salle": "Room 105",
+      "day": "2024-11-15",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "durée": "30",
+      "id": "5f92"
+    },
+    {
+      "id_séance": 7,
+      "title": "Physics Class",
+      "formateur": "Dr. Adams",
+      "groupe": "B1",
+      "salle": "Room 107",
+      "day": "2024-11-16",
+      "startTime": "09:00",
+      "endTime": "09:30",
+      "durée": "30",
+      "id": "c564"
+    },
+    {
+      "id_séance": 9,
+      "title": "Geography Class",
+      "formateur": "Mr. Black",
+      "groupe": "D3",
+      "salle": "Room 109",
+      "day": "2024-11-16",
+      "startTime": "10:00",
+      "endTime": "10:30",
+      "durée": "30",
+      "id": "257b"
+    },
+    {
+      "id_séance": 11,
+      "title": "Biology Class",
+      "formateur": "Dr. Carter",
+      "groupe": "F1",
+      "salle": "Room 111",
+      "day": "2024-11-17",
+      "startTime": "08:30",
+      "endTime": "09:00",
+      "durée": "30",
+      "id": "348d"
+    },
+    {
+      "id_séance": 13,
+      "title": "Philosophy Class",
+      "formateur": "Mr. Harris",
+      "groupe": "H3",
+      "salle": "Room 113",
+      "day": "2024-11-17",
+      "startTime": "09:30",
+      "endTime": "10:00",
+      "durée": "30",
+      "id": "17f8"
+    },
+    {
+      "id_séance": 15,
+      "title": "Political Science",
+      "formateur": "Ms. Miller",
+      "groupe": "J5",
+      "salle": "Room 115",
+      "day": "2024-11-17",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "durée": "30",
+      "id": "c9b2"
+    },
+    {
+      "id_séance": 16,
+      "title": "French Class",
+      "formateur": "Mr. Wilson",
+      "groupe": "K1",
+      "salle": "Room 116",
+      "day": "2024-11-18",
+      "startTime": "08:30",
+      "endTime": "09:00",
+      "durée": "30",
+      "id": "fcc7"
+    },
+    {
+      "id_séance": 17,
+      "title": "German Class",
+      "formateur": "Ms. King",
+      "groupe": "L2",
+      "salle": "Room 117",
+      "day": "2024-11-18",
+      "startTime": "09:00",
+      "endTime": "09:30",
+      "durée": "30",
+      "id": "152e"
+    },
+    {
+      "id_séance": 18,
+      "title": "Spanish Class",
+      "formateur": "Mr. Brown",
+      "groupe": "M3",
+      "salle": "Room 118",
+      "day": "2024-11-18",
+      "startTime": "09:30",
+      "endTime": "10:00",
+      "durée": "30",
+      "id": "f8f7"
+    },
+    {
+      "id_séance": 19,
+      "title": "Computer Science",
+      "formateur": "Ms. Wright",
+      "groupe": "N4",
+      "salle": "Room 119",
+      "day": "2024-11-18",
+      "startTime": "10:00",
+      "endTime": "10:30",
+      "durée": "30",
+      "id": "3cfd"
+    },
+    {
+      "id_séance": 20,
+      "title": "Literature Class",
+      "formateur": "Mr. Harris",
+      "groupe": "O5",
+      "salle": "Room 120",
+      "day": "2024-11-18",
+      "startTime": "10:30",
+      "endTime": "11:00",
+      "durée": "30",
+      "id": "5c6b"
+    },
+    {
+      "id": "1731703761893",
+      "title": "kokino",
+      "teacher": "",
+      "group": "",
+      "nbrAssignment": "",
+      "startTime": "10:30",
+      "endTime": "18:30",
+      "day": "2024-11-12"
+    },
+    {
+      "id": "1731706933530",
+      "title": "ass",
+      "teacher": "",
+      "group": "",
+      "nbrAssignment": "",
+      "startTime": "12:00",
+      "endTime": "12:30",
+      "day": "2024-11-15"
+    }
+  ]
+}
