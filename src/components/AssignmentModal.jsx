@@ -11,6 +11,7 @@ export default function AssignmentModal() {
   const selectedStartTime = useSelector((state) => state.calendar.selectedStartTime);
   const selectedEndTime = useSelector((state) => state.calendar.selectedEndTime);
   const assignments = useSelector((state) => state.calendar.assignments);
+  const selectedGroupe = useSelector((state) => state.calendar.selectedGroupe); // Get selected groupe from state
 
   const timeSlots = hours.flatMap(hour => hour.subHours);
   const existingAssignment = assignments.find(
@@ -23,7 +24,7 @@ export default function AssignmentModal() {
   const [assignmentData, setAssignmentData] = useState({
     title: "",
     teacher: "",
-    group: "",
+    groupe: selectedGroupe,  // Initialize with selected groupe
     nbrAssignment: "",
     startTime: "",
     endTime: "",
@@ -33,17 +34,19 @@ export default function AssignmentModal() {
   useEffect(() => {
     if (showAddAssignmentModal && selectedStartTime && selectedEndTime) {
       if (existingAssignment) {
+        // Pre-fill form with existing assignment data
         setAssignmentData(existingAssignment);
       } else {
         setAssignmentData((prevData) => ({
           ...prevData,
           startTime: selectedStartTime,
           endTime: selectedEndTime,
+          groupe: selectedGroupe,  // Ensure the groupe is set to selected groupe when creating a new assignment
           id: null,
         }));
       }
     }
-  }, [showAddAssignmentModal, selectedStartTime, selectedEndTime, existingAssignment]);
+  }, [showAddAssignmentModal, selectedStartTime, selectedEndTime, existingAssignment, selectedGroupe]);
 
   const handleClose = () => {
     dispatch(setShowAddAssignmentModal(false));
@@ -53,12 +56,12 @@ export default function AssignmentModal() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Assignment data being submitted:', assignmentData);
-  
+
     if (!assignmentData.title || !assignmentData.startTime || !assignmentData.endTime) {
       alert("Please fill in all required fields.");
       return;
     }
-  
+
     if (assignmentData.id) {
       console.log('Updating assignment with ID:', assignmentData.id);
       dispatch(updateAssignmentAsync(assignmentData));
@@ -80,7 +83,7 @@ export default function AssignmentModal() {
     setAssignmentData({
       title: "",
       teacher: "",
-      group: "",
+      groupe: selectedGroupe,  // Reset to the selected groupe
       nbrAssignment: "",
       startTime: "",
       endTime: "",
@@ -142,6 +145,17 @@ export default function AssignmentModal() {
               </option>
             ))}
           </select>
+        </label>
+        {/* Groupe selection */}
+        <label className="block mb-2">
+          Groupe:
+          <input
+            type="text"
+            value={assignmentData.groupe}  // Pre-fill with selected groupe
+            onChange={(e) => setAssignmentData({ ...assignmentData, groupe: e.target.value })}
+            className="w-full border-b-2 border-gray-300 focus:border-blue-500 outline-none py-1"
+            disabled  // Disable the field so the groupe cannot be changed
+          />
         </label>
         <footer className="flex justify-end gap-2">
           <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded">

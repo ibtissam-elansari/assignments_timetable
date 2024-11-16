@@ -155,26 +155,6 @@
       "endTime": "11:00",
       "durée": "30",
       "id": "5c6b"
-    },
-    {
-      "id": "1731703761893",
-      "title": "kokino",
-      "teacher": "",
-      "group": "",
-      "nbrAssignment": "",
-      "startTime": "10:30",
-      "endTime": "18:30",
-      "day": "2024-11-12"
-    },
-    {
-      "id": "1731706933530",
-      "title": "ass",
-      "teacher": "",
-      "group": "",
-      "nbrAssignment": "",
-      "startTime": "12:00",
-      "endTime": "12:30",
-      "day": "2024-11-15"
     }
   ]
 }

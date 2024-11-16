@@ -50,6 +50,7 @@ const initialState = {
   selectedDay: null,
   selectedStartTime: "",
   selectedEndTime: "",
+  selectedGroupe: "",
 };
 
 const slice = createSlice({
@@ -68,6 +69,9 @@ const slice = createSlice({
     setShowAddAssignmentModal(state, action) {
       state.showAddAssignmentModal = action.payload;
     },
+    setSelectedGroupe(state, action) { // New action to set selected group
+      state.selectedGroupe = action.payload;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -94,6 +98,7 @@ export const {
   setSelectedStartTime,
   setSelectedEndTime,
   setShowAddAssignmentModal,
+  setSelectedGroupe
 } = slice.actions;
 
 export default slice.reducer;
