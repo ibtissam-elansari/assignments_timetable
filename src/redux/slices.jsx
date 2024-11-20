@@ -3,7 +3,7 @@ import axios from 'axios';
 import dayjs from 'dayjs';
 
 // URL for json-server
-const API_URL = 'http://localhost:3000/assignments';
+const API_URL = 'http://localhost:5000/assignments';
 
 // Async thunks
 export const fetchAssignmentsAsync = createAsyncThunk('calendar/fetchAssignments', async () => {
@@ -50,7 +50,8 @@ const initialState = {
   selectedDay: null,
   selectedStartTime: "",
   selectedEndTime: "",
-  selectedGroupe: "",
+  selectedGroupe: null,
+  selectedFormateur: null
 };
 
 const slice = createSlice({
@@ -70,7 +71,14 @@ const slice = createSlice({
       state.showAddAssignmentModal = action.payload;
     },
     setSelectedGroupe(state, action) { // New action to set selected group
-      state.selectedGroupe = action.payload;
+      if(state.selectedGroupe !== action.payload){
+          state.selectedGroupe = action.payload;
+      }
+    },
+    setSelectedFormateur(state, action) { // New action to set selected group
+      if(state.selectedFormateur !== action.payload){
+        state.selectedFormateur = action.payload;
+      }
     }
   },
   extraReducers: (builder) => {
@@ -98,7 +106,8 @@ export const {
   setSelectedStartTime,
   setSelectedEndTime,
   setShowAddAssignmentModal,
-  setSelectedGroupe
+  setSelectedGroupe,
+  setSelectedFormateur
 } = slice.actions;
 
 export default slice.reducer;

@@ -1,160 +1,296 @@
 {
   "assignments": [
     {
-      "id_séance": 1,
+      "id": "1",
       "title": "Math Class",
-      "formateur": "Mr. Smith",
-      "groupe": "A1",
+      "formateur": {
+        "matricule": "B1290",
+        "nom": "Mr. Smith",
+        "email": "smith@gmail.com",
+        "secteur": "digital"
+      },
+      "groupe": {
+        "codeGroupe": "DEVOWFS201",
+        "intituleGroupe": "Web Full-Stack",
+        "filiere": "Développement Digital",
+        "secteur": "digital"
+      },
       "salle": "Room 101",
-      "day": "2024-11-15",
+      "day": "2024-11-19",
       "startTime": "08:30",
       "endTime": "09:00",
-      "durée": "30",
-      "id": "3bd4"
+      "durée": "30"
     },
     {
-      "id_séance": 3,
+      "id": "3",
       "title": "History Class",
-      "formateur": "Ms. Davis",
-      "groupe": "C3",
+      "formateur": {
+        "matricule": "H2345",
+        "nom": "Ms. Davis",
+        "email": "davis@gmail.com",
+        "secteur": "social sciences"
+      },
+      "groupe": {
+        "codeGroupe": "HIST201",
+        "intituleGroupe": "Histoire Générale",
+        "filiere": "Humanities",
+        "secteur": "social sciences"
+      },
       "salle": "Room 103",
       "day": "2024-11-15",
       "startTime": "09:30",
       "endTime": "10:00",
-      "durée": "30",
-      "id": "b3b8"
+      "durée": "30"
     },
     {
-      "id_séance": 5,
+      "id": "5",
       "title": "Art Class",
-      "formateur": "Ms. Green",
-      "groupe": "E5",
+      "formateur": {
+        "matricule": "A5432",
+        "nom": "Ms. Green",
+        "email": "green@gmail.com",
+        "secteur": "arts"
+      },
+      "groupe": {
+        "codeGroupe": "ART102",
+        "intituleGroupe": "Arts Visuels",
+        "filiere": "Fine Arts",
+        "secteur": "arts"
+      },
       "salle": "Room 105",
       "day": "2024-11-15",
       "startTime": "10:30",
       "endTime": "11:00",
-      "durée": "30",
-      "id": "5f92"
+      "durée": "30"
     },
     {
-      "id_séance": 7,
+      "id": "7",
       "title": "Physics Class",
-      "formateur": "Dr. Adams",
-      "groupe": "B1",
+      "formateur": {
+        "matricule": "P6789",
+        "nom": "Dr. Adams",
+        "email": "adams@gmail.com",
+        "secteur": "sciences"
+      },
+      "groupe": {
+        "codeGroupe": "PHY101",
+        "intituleGroupe": "Sciences Physiques",
+        "filiere": "Sciences",
+        "secteur": "sciences"
+      },
       "salle": "Room 107",
       "day": "2024-11-16",
       "startTime": "09:00",
       "endTime": "09:30",
-      "durée": "30",
-      "id": "c564"
+      "durée": "30"
     },
     {
-      "id_séance": 9,
+      "id": "9",
       "title": "Geography Class",
-      "formateur": "Mr. Black",
-      "groupe": "D3",
+      "formateur": {
+        "matricule": "G1234",
+        "nom": "Mr. Black",
+        "email": "black@gmail.com",
+        "secteur": "social sciences"
+      },
+      "groupe": {
+        "codeGroupe": "GEO202",
+        "intituleGroupe": "Géographie Appliquée",
+        "filiere": "Geosciences",
+        "secteur": "social sciences"
+      },
       "salle": "Room 109",
       "day": "2024-11-16",
       "startTime": "10:00",
       "endTime": "10:30",
-      "durée": "30",
-      "id": "257b"
+      "durée": "30"
     },
     {
-      "id_séance": 11,
+      "id": "11",
       "title": "Biology Class",
-      "formateur": "Dr. Carter",
-      "groupe": "F1",
+      "formateur": {
+        "matricule": "B4321",
+        "nom": "Dr. Carter",
+        "email": "carter@gmail.com",
+        "secteur": "sciences"
+      },
+      "groupe": {
+        "codeGroupe": "BIO301",
+        "intituleGroupe": "Biologie Avancée",
+        "filiere": "Life Sciences",
+        "secteur": "sciences"
+      },
       "salle": "Room 111",
       "day": "2024-11-17",
       "startTime": "08:30",
       "endTime": "09:00",
-      "durée": "30",
-      "id": "348d"
+      "durée": "30"
     },
     {
-      "id_séance": 13,
+      "id": "13",
       "title": "Philosophy Class",
-      "formateur": "Mr. Harris",
-      "groupe": "H3",
+      "formateur": {
+        "matricule": "PH5678",
+        "nom": "Mr. Harris",
+        "email": "harris@gmail.com",
+        "secteur": "humanities"
+      },
+      "groupe": {
+        "codeGroupe": "PHILO101",
+        "intituleGroupe": "Introduction à la Philosophie",
+        "filiere": "Philosophy",
+        "secteur": "humanities"
+      },
       "salle": "Room 113",
       "day": "2024-11-17",
       "startTime": "09:30",
       "endTime": "10:00",
-      "durée": "30",
-      "id": "17f8"
+      "durée": "30"
     },
     {
-      "id_séance": 15,
+      "id": "15",
       "title": "Political Science",
-      "formateur": "Ms. Miller",
-      "groupe": "J5",
+      "formateur": {
+        "matricule": "PS7890",
+        "nom": "Ms. Miller",
+        "email": "miller@gmail.com",
+        "secteur": "social sciences"
+      },
+      "groupe": {
+        "codeGroupe": "POLSCI301",
+        "intituleGroupe": "Science Politique Avancée",
+        "filiere": "Political Studies",
+        "secteur": "social sciences"
+      },
       "salle": "Room 115",
       "day": "2024-11-17",
       "startTime": "10:30",
       "endTime": "11:00",
-      "durée": "30",
-      "id": "c9b2"
+      "durée": "30"
     },
     {
-      "id_séance": 16,
+      "id": "16",
       "title": "French Class",
-      "formateur": "Mr. Wilson",
-      "groupe": "K1",
+      "formateur": {
+        "matricule": "F0987",
+        "nom": "Mr. Wilson",
+        "email": "wilson@gmail.com",
+        "secteur": "languages"
+      },
+      "groupe": {
+        "codeGroupe": "FR101",
+        "intituleGroupe": "Français Langue Étrangère",
+        "filiere": "Semantics",
+        "secteur": "linguistics"
+      },
       "salle": "Room 116",
       "day": "2024-11-18",
       "startTime": "08:30",
       "endTime": "09:00",
-      "durée": "30",
-      "id": "fcc7"
+      "durée": "30"
     },
     {
-      "id_séance": 17,
+      "id": "17",
       "title": "German Class",
-      "formateur": "Ms. King",
-      "groupe": "L2",
+      "formateur": {
+        "matricule": "G5678",
+        "nom": "Ms. King",
+        "email": "king@gmail.com",
+        "secteur": "languages"
+      },
+      "groupe": {
+        "codeGroupe": "GER201",
+        "intituleGroupe": "Allemand Intermédiaire",
+        "filiere": "Historical linguistics",
+        "secteur": "linguistics"
+      },
       "salle": "Room 117",
       "day": "2024-11-18",
       "startTime": "09:00",
       "endTime": "09:30",
-      "durée": "30",
-      "id": "152e"
+      "durée": "30"
     },
     {
-      "id_séance": 18,
-      "title": "Spanish Class",
-      "formateur": "Mr. Brown",
-      "groupe": "M3",
-      "salle": "Room 118",
-      "day": "2024-11-18",
-      "startTime": "09:30",
-      "endTime": "10:00",
-      "durée": "30",
-      "id": "f8f7"
-    },
-    {
-      "id_séance": 19,
+      "id": "19",
       "title": "Computer Science",
-      "formateur": "Ms. Wright",
-      "groupe": "N4",
+      "formateur": {
+        "matricule": "C1234",
+        "nom": "Ms. Wright",
+        "email": "wright@gmail.com",
+        "secteur": "technology"
+      },
+      "groupe": {
+        "codeGroupe": "CS101",
+        "intituleGroupe": "Informatique de Base",
+        "filiere": "Information Technology",
+        "secteur": "technology"
+      },
       "salle": "Room 119",
       "day": "2024-11-18",
       "startTime": "10:00",
       "endTime": "10:30",
-      "durée": "30",
-      "id": "3cfd"
+      "durée": "30"
     },
     {
-      "id_séance": 20,
+      "id": "20",
       "title": "Literature Class",
-      "formateur": "Mr. Harris",
-      "groupe": "O5",
+      "formateur": {
+        "matricule": "L1234",
+        "nom": "Mr. Harris",
+        "email": "harris@gmail.com",
+        "secteur": "humanities"
+      },
+      "groupe": {
+        "codeGroupe": "LIT201",
+        "intituleGroupe": "Littérature Moderne",
+        "filiere": "Literature",
+        "secteur": "humanities"
+      },
       "salle": "Room 120",
       "day": "2024-11-18",
       "startTime": "10:30",
       "endTime": "11:00",
-      "durée": "30",
-      "id": "5c6b"
+      "durée": "30"
+    },
+    {
+      "id": "1731880174458",
+      "title": "addd",
+      "formateur": {
+        "matricule": "H2345",
+        "nom": "Ms. Davis",
+        "email": "davis@gmail.com",
+        "secteur": "social sciences"
+      },
+      "groupe": {
+        "codeGroupe": "HIST201",
+        "intituleGroupe": "Histoire Générale",
+        "filiere": "Humanities",
+        "secteur": "social sciences"
+      },
+      "salle": "",
+      "day": "2024-11-18",
+      "startTime": "08:30",
+      "endTime": "09:00"
+    },
+    {
+      "id": "1731951217732",
+      "title": "qqqq",
+      "formateur": {
+        "matricule": "L1234",
+        "nom": "Mr. Harris",
+        "email": "harris@gmail.com",
+        "secteur": "humanities"
+      },
+      "groupe": {
+        "codeGroupe": "LIT201",
+        "intituleGroupe": "Littérature Moderne",
+        "filiere": "Literature",
+        "secteur": "humanities"
+      },
+      "salle": "",
+      "day": "2024-11-19",
+      "startTime": "10:30",
+      "endTime": "12:00"
     }
   ]
 }
