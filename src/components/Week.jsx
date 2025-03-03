@@ -1,40 +1,42 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAssignmentsAsync } from '../redux/slices';
+import { fetchAssignments } from '../redux/slices';
 import DayRow from './DayRow';
 import dayjs from 'dayjs';
 
 export default function Week() {
   const dispatch = useDispatch();
-  const startOfWeekString = useSelector((state) => state.calendar.startOfWeek);
+  const startOfWeekString = useSelector((state) => state.scheduler.startOfWeek);
   const startOfWeek = dayjs(startOfWeekString);
-  const hours = useSelector((state) => state.calendar.hours);
-  const daysOfWeek = Array.from({ length: 7 }, (_, i) => startOfWeek.add(i, 'day'));
-  const assignments = useSelector((state) => state.calendar.assignments);
-  const selectedGroupe = useSelector((state) => state.calendar.selectedGroupe);
-  const selectedFormateur = useSelector(state => state.calendar.selectedFormateur);
+  const hours = useSelector((state) => state.scheduler.hours);
+  const daysOfWeek = Array.from({ length: 6 }, (_, i) => startOfWeek.add(i, 'day'));
+  const assignments = useSelector((state) => state.scheduler.assignments);
+  const selectedGroupe = useSelector((state) => state.scheduler.selectedGroupe);
+  const selectedFormateur = useSelector((state) => state.scheduler.selectedFormateur);
 
   useEffect(() => {
-    dispatch(fetchAssignmentsAsync());
+    dispatch(fetchAssignments());
   }, [dispatch]);
 
-  // Filter assignments based on the selected group
-  const filteredAssignments = 
-  selectedGroupe 
+  const filteredAssignments = selectedGroupe
     ? assignments.filter((assignment) => assignment.groupe.codeGroupe === selectedGroupe)
-    : selectedFormateur 
-    ? assignments.filter((assignment) => assignment.formateur.matricule === selectedFormateur)
-    : assignments;
+    : selectedFormateur
+      ? assignments.filter((assignment) => assignment.formateur.matricule === selectedFormateur)
+      : assignments;
 
   return (
-    <div className="overflow-x-auto p-2">
-      <div className="inline-block min-w-full overflow-hidden rounded-lg border border-gray-300 shadow-md">
-        <table className="min-w-full border-collapse text-center text-xs">
+    <div className="overflow-x-auto p-2 pt-5 w-full ">
+      <div className="w-full overflow-hidden rounded-lg border border-gray-300 shadow-md">
+        <table className="w-full border-collapse text-center text-xs">
           <thead>
             <tr>
-              <th className="px-1 py-1 border rounded-tl-lg">Day</th>
+              <th className="px-1 py-5 text-base border rounded-tl-lg w-24 h-12">Day</th>
               {hours.map((hour, index) => (
-                <th key={index} colSpan={2} className="px-1 py-1 border font-semibold">
+                <th
+                  key={index}
+                  colSpan={2}
+                  className="px-1 py-1 text-sm border font-semibold w-24 h-12"
+                >
                   {hour.startTime} - {hour.endTime}
                 </th>
               ))}
@@ -42,12 +44,7 @@ export default function Week() {
           </thead>
           <tbody>
             {daysOfWeek.map((day, dayIndex) => (
-              <DayRow
-                key={dayIndex}
-                day={day}
-                hours={hours}
-                assignments={filteredAssignments}
-              />
+              <DayRow key={dayIndex} day={day} hours={hours} assignments={filteredAssignments} />
             ))}
           </tbody>
         </table>
