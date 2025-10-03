@@ -290,6 +290,126 @@
       "day": "2025-03-05",
       "startTime": "15:30",
       "endTime": "16:00"
+    },
+    {
+      "id": "1759513216022",
+      "title": "assignment 1",
+      "formateur": {
+        "matricule": "A5432",
+        "nom": "Ms. Green",
+        "email": "green@gmail.com",
+        "secteur": "arts"
+      },
+      "groupe": {
+        "codeGroupe": "ART102",
+        "intituleGroupe": "Peinture de Base",
+        "filiere": "Fine Arts",
+        "secteur": "arts"
+      },
+      "salle": "info 01",
+      "day": "2025-09-30",
+      "startTime": "15:30",
+      "endTime": "15:30"
+    },
+    {
+      "id": "1759515714874",
+      "title": "Maths",
+      "formateur": {
+        "matricule": "H2345",
+        "nom": "Ms. Davis",
+        "email": "davis@gmail.com",
+        "secteur": "social sciences"
+      },
+      "groupe": {
+        "codeGroupe": "HIST201",
+        "intituleGroupe": "Histoire Moderne",
+        "filiere": "Humanities",
+        "secteur": "social sciences"
+      },
+      "salle": "info 01",
+      "day": "2025-09-29",
+      "startTime": "08:30",
+      "endTime": "10:30"
+    },
+    {
+      "id": "1759515780425",
+      "title": "Anglais",
+      "formateur": {
+        "matricule": "H2345",
+        "nom": "Ms. Davis",
+        "email": "davis@gmail.com",
+        "secteur": "social sciences"
+      },
+      "groupe": {
+        "codeGroupe": "HIST201",
+        "intituleGroupe": "Histoire Moderne",
+        "filiere": "Humanities",
+        "secteur": "social sciences"
+      },
+      "salle": "salle de dessin",
+      "day": "2025-09-30",
+      "startTime": "13:30",
+      "endTime": "16:00"
+    },
+    {
+      "id": "1759515806309",
+      "title": "Français",
+      "formateur": {
+        "matricule": "H2345",
+        "nom": "Ms. Davis",
+        "email": "davis@gmail.com",
+        "secteur": "social sciences"
+      },
+      "groupe": {
+        "codeGroupe": "HIST201",
+        "intituleGroupe": "Histoire Moderne",
+        "filiere": "Humanities",
+        "secteur": "social sciences"
+      },
+      "salle": "salle 5",
+      "day": "2025-10-01",
+      "startTime": "16:00",
+      "endTime": "18:30"
+    },
+    {
+      "id": "1759515834941",
+      "title": "Physique",
+      "formateur": {
+        "matricule": "H2345",
+        "nom": "Ms. Davis",
+        "email": "davis@gmail.com",
+        "secteur": "social sciences"
+      },
+      "groupe": {
+        "codeGroupe": "HIST201",
+        "intituleGroupe": "Histoire Moderne",
+        "filiere": "Humanities",
+        "secteur": "social sciences"
+      },
+      "salle": "info 01",
+      "day": "2025-10-01",
+      "startTime": "08:30",
+      "endTime": "10:30"
+    },
+    {
+      "id": "1759515868275",
+      "title": "Maths",
+      "formateur": {
+        "matricule": "H2345",
+        "nom": "Ms. Davis",
+        "email": "davis@gmail.com",
+        "secteur": "social sciences"
+      },
+      "groupe": {
+        "codeGroupe": "HIST201",
+        "intituleGroupe": "Histoire Moderne",
+        "filiere": "Humanities",
+        "secteur": "social sciences"
+      },
+      "salle": "info 02",
+      "day": "2025-10-02",
+      "startTime": "10:30",
+      "endTime": "13:30"
     }
   ]
 }

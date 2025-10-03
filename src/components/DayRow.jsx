@@ -50,7 +50,7 @@ const DayRow = ({ day, hours, assignments }) => {
                 <td
                   key={`${subHour.startTime}-${subHour.endTime}`}
                   colSpan={spanCount}
-                  className="border p-2 w-25 cursor-pointer bg-primary text-primary-content hover:bg-primary/90"
+                  className="border p-2 w-25 cursor-pointer bg-blue-200 text-primary-content hover:bg-primary/90"
                   onClick={() => {
                     dispatch(setSelectedDay(day.format('YYYY-MM-DD')));
                     dispatch(setSelectedStartTime(assignment.startTime));
@@ -58,7 +58,9 @@ const DayRow = ({ day, hours, assignments }) => {
                     dispatch(setShowAddAssignmentModal(true));
                   }}
                 >
-                  {assignment.title}
+                  <h4 className='text-xl'>{assignment.title}</h4>
+                  <p>{assignment.formateur.nom}</p>
+                  <p>{assignment.salle}</p>
                 </td>
               );
             }
